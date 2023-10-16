@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CheakOutService } from 'src/app/services/cheak-out.service';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/app/environments/environment';
+import { ProductsService } from 'src/app/services/products.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-order-address',
@@ -16,7 +18,8 @@ export class OrderAddressComponent implements OnInit {
     private _CheakOutService: CheakOutService,
     private _ActivatedRoute: ActivatedRoute,
     private toastr: ToastrService,
-    private _router: Router
+    private _router: Router,
+    private _CartServicee: CartService
   ) {}
   ngOnInit(): void {
     console.log(
@@ -45,6 +48,7 @@ export class OrderAddressComponent implements OnInit {
           next: (data) => {
             this.toastr.success('checked ', data.status);
             this._router.navigate(['/allorders']);
+            this._CartServicee.productCounts.next(0);
           },
           error: (err) => {
             this.toastr.error('no products in the cart try again', 'error');
