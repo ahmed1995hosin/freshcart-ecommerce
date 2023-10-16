@@ -1,0 +1,53 @@
+<div class="container home">
+  <div class="row g-0 mb-5">
+    <div class="col-md-9">
+      <div>
+        <app-mainslider></app-mainslider>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <img
+        height="250"
+        src="./assets/images/grocery-banner-2.jpeg"
+        alt=""
+        class="w-100 fit-image"
+      />
+      <img
+        height="250"
+        src="./assets/images/blog-img-2.jpeg"
+        alt=""
+        class="w-100 fit-image"
+      />
+    </div>
+  </div>
+
+  <h2 class="h1 fw-bold mb-4">Shop Popular Categories</h2>
+  <app-categories-slide class=""></app-categories-slide>
+  <input
+    [(ngModel)]="searchName"
+    class="search-input mt-5 form-control w-75 mx-auto"
+    type="text"
+    placeholder="Search By Name..."
+  />
+  <div class="row g-3 mt-5" *ngIf="products.length != 0">
+    <div
+      class="col-lg-2 col-md-3 col-sm-6"
+      *ngFor="
+        let product of products | searchName : searchName | maxlength : 24
+      "
+    >
+      <app-singleproduct
+        [product]="product"
+        [wishListId]="wishListId"
+      ></app-singleproduct>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="row g-3 mt-5">
+    <h2 class="text-center h1 fw-bold">
+      The Products of That category Out of Stock
+    </h2>
+  </div>
+
+  <!--  -->
+</div>

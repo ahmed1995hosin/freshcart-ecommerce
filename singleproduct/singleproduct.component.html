@@ -1,0 +1,30 @@
+<div class="product px-3 py-4">
+  <div role="button" [routerLink]="['/details', product._id]">
+    <img [src]="product.imageCover" alt="" class="w-100" />
+    <div class="p-2">
+      <span class="fw-bold h5 text-main">{{ product.category.name }}</span>
+      <h3 class="fw-bolder h4">{{ product.title | cuttitle : 2 }}</h3>
+      <div class="d-flex justify-content-between algin-items-center">
+        <span class="fw-bold font-sm text-muted"
+          >{{ product.price | currency : "EGP" }}
+        </span>
+        <span class="fw-bold font-sm text-muted">
+          <i class="fas fa-star rating-color ms-2"></i>
+          {{ product.ratingsAverage }}</span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="group-btn d-flex justify-content-between">
+    <button
+      (click)="addProduct(product._id)"
+      class="btn bg-main text-white w-75 my-3 position-relative"
+    >
+      <i class="fas fa-plus me-1"></i>Add
+    </button>
+    <app-hearticon
+      [productId]="product._id"
+      [wishListId]="wishListId"
+    ></app-hearticon>
+  </div>
+</div>

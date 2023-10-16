@@ -1,0 +1,12 @@
+<button class="heart text-main">
+  <i
+    *ngIf="!isWishlist"
+    (click)="addWishlist(productId)"
+    class="fa-regular fa-heart"
+  ></i>
+  <i
+    *ngIf="isWishlist"
+    (click)="removeWishlist(productId)"
+    class="fa-solid fa-heart heart-red"
+  ></i>
+</button>

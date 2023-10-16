@@ -1,0 +1,16 @@
+.layout {
+  background-color: rgba(0, 176, 42, 0.6);
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  opacity: 0;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.layout:hover {
+  opacity: 1;
+}

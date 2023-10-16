@@ -1,0 +1,50 @@
+<footer id="regester" class="footer bg-main-light">
+  <div class="container">
+    <h2 class="heading-2 text-capitalize">get the FreshCart App</h2>
+    <p class="mb-3">
+      We will send you a link,open it on ypu phone to download the app
+    </p>
+    <form class="subscriber line py-5" (submit)="stopDefault($event)">
+      <div class="row g-5">
+        <div class="col-md-9">
+          <input
+            class="form-control"
+            type="email"
+            name="subscriberEmail"
+            placeholder="Email"
+          />
+        </div>
+        <div class="col-md-3">
+          <button class="btn ms-auto main-btn bg-main text-capitalize">
+            share app link
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="container py-5 line">
+      <div class="row gy-4">
+        <div class="col-md-6">
+          <p>
+            payment partners
+            <i class="ms-4 pay-icon fa-brands fa-amazon"></i>
+            <i class="fa-brands fa-paypal ms-4 pay-icon"></i>
+            <i class="ms-4 pay-icon fa-brands fa-cc-mastercard"></i>
+            <i class="ms-4 pay-icon fa-brands fa-cc-amex"></i>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <div class="row gy-4 align-items-center">
+            <div class="col-md-6"><p>Get Delivers with FreshCart</p></div>
+            <div class="col-md-3">
+              <img src="./assets/images/f-app.jpg" alt="" class="w-100" />
+            </div>
+
+            <div class="col-md-3">
+              <img src="./assets/images/f-google.jpg" alt="" class="w-100" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

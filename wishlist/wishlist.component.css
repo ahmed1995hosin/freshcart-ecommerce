@@ -1,0 +1,29 @@
+.cart {
+  margin: -6rem auto !important;
+  min-height: 100vh !important;
+}
+.main-btn:focus {
+  border: 1.5px solid transparent !important;
+}
+
+.main-btn {
+  border: 1.5px solid transparent !important;
+  outline: none !important;
+}
+
+.main-btn:hover {
+  border: 1.6px solid var(--main-color) !important;
+}
+.bor-btn {
+  border: 1.5px solid var(--main-color) !important;
+  background-color: transparent;
+  transition: all 0.2s !important;
+  color: var(--main-color);
+}
+.bor-btn:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}
+.bor-btn:focus {
+  border: 1.5px solid var(--main-color) !important;
+}

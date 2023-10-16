@@ -1,0 +1,231 @@
+<nav
+  class="bg-main nav-start p-2 text-white"
+  [ngClass]="{ 'main-margin-bottom position-relative': isStricky }"
+>
+  <div
+    class="container d-flex justify-content-between align-items-center flex-wrap"
+  >
+    <p class="text-center text-lg-start">Welcome to our international shop!</p>
+
+    <ul class="social-icon d-flex list-unstyled mx-auto mx-md-0 mt-md-0 mt-2">
+      <li>
+        <a href="#" class="text-decoration-none text-muted me-4"
+          ><i class="fa-brands fa-facebook"></i
+        ></a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none text-muted me-4"
+          ><i class="fa-brands fa-x-twitter"></i
+        ></a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none text-muted me-4"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none text-muted me-4"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none text-muted me-4"
+          ><i class="fa-brands fa-tiktok"></i
+        ></a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none text-muted me-4"
+          ><i class="fa-brands fa-youtube"></i
+        ></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<nav
+  #navElement
+  class="navbar navbar-expand-lg bg-main-light main-navigation transition"
+  id="nav-scroller"
+>
+  <div class="container">
+    <a class="navbar-brand order-0" routerLink="home"
+      ><img src="./assets/images/freshcart-logo.svg" alt=""
+    /></a>
+    <ul
+      class="nav-user position-relative d-flex list-unstyled ms-auto order-2 order-lg-2 order-sm-1 mr-auto justify-content-sm-end justify-content-between align-items-center"
+    >
+      <li class="nav-item me-sm-5 me-4" *ngIf="islogin">
+        <a
+          class="nav-link text-capitalize position-relative p-1"
+          aria-current="page"
+          routerLink="/card"
+          routerLinkActive="active1"
+          ><i class="font-md fa-solid fa-cart-shopping">
+            <span
+              *ngIf="countNotifications"
+              class="notification d-flex align-items-center justify-content-center"
+              >{{ countNotifications }}</span
+            ></i
+          ></a
+        >
+      </li>
+      <li class="nav-item me-sm-5 me-3" *ngIf="islogin">
+        <a
+          routerLink="/wishlist"
+          routerLinkActive="active1"
+          class="nav-link text-capitalize position-relative p-1"
+          aria-current="page"
+          ><i class="font-md fa-solid fa-heart">
+            <span
+              *ngIf="countWishList"
+              class="notification d-flex align-items-center justify-content-center"
+              >{{ countWishList }}</span
+            ></i
+          ></a
+        >
+      </li>
+      <ul class="list-unstyled d-flex" *ngIf="!islogin">
+        <li class="nav-item text-capitalize ms-5">
+          <a
+            class="nav-link d-inline-block"
+            routerLink="register"
+            routerLinkActive="active1"
+          >
+            register</a
+          >
+        </li>
+        /
+        <li class="nav-item me-sm-5 me-3 text-capitalize">
+          <a
+            class="nav-link d-inline-block px-2"
+            routerLink="login"
+            routerLinkActive="active1"
+            >log in</a
+          >
+        </li>
+      </ul>
+      <!-- <li
+        class="nav-item me-sm-4 me-3 text-capitalize cursor-pointer"
+        *ngIf="islogin"
+      >
+        <a class="nav-link" (click)="logout()">logout</a>
+      </li> -->
+      <li
+        class="nav-item ms-2 me-2 me-lg-0 text-capitalize cursor-pointer d-sm-block d-none"
+        *ngIf="islogin"
+      >
+        <a class="nav-link active1">
+          <div class="dropdown">
+            <button class="dropbtn">
+              <i class="fa-solid fa-user me-1"></i> {{ userName }}
+              <i class="fa-solid fa-angle-down ms-2"></i>
+            </button>
+            <div class="dropdown-content">
+              <a routerLinkActive="active1" [routerLink]="['/allorders']"
+                >all orders</a
+              >
+              <a
+                routerLinkActive="active1"
+                [routerLink]="['/settings', 'updatapassword']"
+                >Change password</a
+              >
+              <a routerLinkActive="active1" (click)="logout()">logout</a>
+            </div>
+          </div></a
+        >
+      </li>
+    </ul>
+    <button
+      *ngIf="islogin"
+      (click)="openToggle()"
+      class="navbar-toggler order-3 order-sm-2"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i [class.fa-x]="isOpen" class="fa-solid fa-bars transition1"></i>
+    </button>
+
+    <div
+      class="collapse navbar-collapse order-lg-1 order-3 py-lg-0 py-5"
+      id="navbarSupportedContent"
+      *ngIf="islogin"
+    >
+      <ul class="navbar-nav navbar-r mx-auto mb-2 mb-lg-0">
+        <li class="nav-item me-4">
+          <a
+            class="nav-link d-inline-block text-capitalize"
+            aria-current="page"
+            routerLink="/home"
+            routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item me-4 text-capitalize">
+          <a
+            class="nav-link d-inline-block"
+            routerLink="/products"
+            routerLinkActive="active"
+          >
+            products</a
+          >
+        </li>
+        <li class="nav-item me-4 text-capitalize">
+          <a
+            class="nav-link d-inline-block"
+            routerLink="/categories"
+            routerLinkActive="active"
+            >categories</a
+          >
+        </li>
+        <li class="nav-item me-4 text-capitalize">
+          <a
+            class="nav-link d-inline-block"
+            routerLink="/brands"
+            routerLinkActive="active"
+            >brands</a
+          >
+        </li>
+
+        <li
+          *ngIf="islogin"
+          class="nav-item pt-5 text-capitalize settingss d-sm-none d-block"
+        >
+          settings
+        </li>
+        <li
+          *ngIf="islogin"
+          class="settings nav-item me-4 text-capitalize d-sm-none d-block"
+        >
+          <a
+            class="nav-link my-1"
+            routerLinkActive="active1"
+            [routerLink]="['/allorders']"
+            >all orders</a
+          >
+        </li>
+        <li
+          *ngIf="islogin"
+          class="settings nav-item me-4 text-capitalize d-sm-none d-block"
+        >
+          <a
+            class="nav-link my-1"
+            routerLinkActive="active1"
+            [routerLink]="['/settings', 'updatapassword']"
+            >Change password</a
+          >
+        </li>
+        <li
+          *ngIf="islogin"
+          class="settings nav-item me-4 text-capitalize d-sm-none d-block"
+        >
+          <a class="nav-link my-1" routerLinkActive="active1" (click)="logout()"
+            >logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

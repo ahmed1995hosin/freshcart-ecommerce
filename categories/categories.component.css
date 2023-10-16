@@ -1,0 +1,21 @@
+.category-section {
+  margin-top: -5rem;
+}
+
+.category {
+  border: 1px solid var(--main-color);
+}
+
+.categories-slide {
+  object-fit: cover;
+}
+.categories-slide:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+.title-h2 {
+  z-index: 1;
+}

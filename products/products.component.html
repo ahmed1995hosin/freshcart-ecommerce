@@ -1,0 +1,63 @@
+<section class="product-section">
+  <app-mainslider class="w-100 vh-100 fit-image"> </app-mainslider>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12"></div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <input
+        class="w-100 my-4 form-control font-sm py-3"
+        type="search"
+        placeholder="Search By Name"
+        [(ngModel)]="searchName"
+      />
+    </div>
+  </div>
+  <div class="row my-3 text-center">
+    <pagination-controls
+      id="page"
+      (pageChange)="pageChanged($event)"
+      (pageBoundsCorrection)="pageChanged($event)"
+      [maxSize]="9"
+      [directionLinks]="true"
+      [autoHide]="true"
+      [responsive]="false"
+      previousLabel="Previous"
+      nextLabel="Next"
+      screenReaderPaginationLabel="Pagination"
+      screenReaderPageLabel="page"
+      screenReaderCurrentLabel="You're on page"
+    >
+    </pagination-controls>
+  </div>
+  <div class="row g-4">
+    <div
+      *ngFor="
+        let product of products
+          | paginate
+            : {
+                id: 'page',
+                itemsPerPage: pageSize,
+                currentPage: curPage,
+                totalItems: total
+              }
+          | searchName : searchName
+      "
+      class="col-lg-3 col-md-4 col-sm-6"
+    >
+      <app-singleproduct
+        *ngIf="isload"
+        [wishListId]="wishListId"
+        [product]="product"
+      ></app-singleproduct>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="row g-3 mt-3">
+    <h2 class="text-center h1 fw-bold">No Product with This Name</h2>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+.footer {
+  padding: 4rem 0;
+  /* position: relative;
+  z-index: 90000; */
+}
+
+.subscriber input {
+  padding: 0.6rem 1.2rem;
+  font-size: inherit;
+}
+.main-btn {
+  padding: 0.6rem 1.2rem;
+  font-size: inherit;
+  color: white;
+  transition: all 0.3s;
+}
+
+.main-btn:hover {
+  opacity: 0.8;
+}
+
+.line {
+  border-bottom: 1px solid #ccc;
+}
+
+.pay-icon {
+  font-size: 3rem;
+}

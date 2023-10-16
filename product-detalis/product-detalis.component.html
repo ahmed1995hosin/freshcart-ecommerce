@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row gy-4">
+    <div class="col-md-4">
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let slide of productDetalis?.images">
+          <ng-template carouselSlide>
+            <img
+              [src]="slide"
+              [alt]="productDetalis?.title"
+              [title]="productDetalis?.title"
+              class="w-100"
+            />
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+    <div class="col-md-8 align-self-center px-5">
+      <h2 class="h2 fw-bolder">{{ productDetalis?.title }}</h2>
+      <p class="text-muted font-sm my-4">{{ productDetalis?.description }}</p>
+      <h5 class="fw-bold font-sm">{{ productDetalis?.category?.name }}</h5>
+      <div class="d-flex justify-content-between algin-items-center">
+        <span class="fw-bold font-sm text-muted"
+          >{{ productDetalis?.price | currency : "EGP" }}
+        </span>
+        <app-rating [rating]="productDetalis?.ratingsAverage!" *ngIf="sendData">
+        </app-rating>
+      </div>
+      <!-- <button
+        (click)="addProduct(productDetalis?._id!)"
+        class="btn bg-main text-white w-100 my-3 position-relative font-sm fw-bold py-2 my-4"
+      >
+        <i class="fas fa-plus me-1"></i>Add
+      </button> -->
+      <div class="d-flex ext-white font-sm py-2 my-4">
+        <button
+          (click)="addProduct(productDetalis?._id!)"
+          class="btn bg-main text-white w-75 position-relative py-2 font-sm me-5"
+        >
+          <i class="fas fa-plus me-1"></i>Add
+        </button>
+
+        <app-hearticon
+          *ngIf="sendData"
+          [productId]="productIdwish"
+          [wishListId]="wishListId"
+        ></app-hearticon>
+      </div>
+    </div>
+  </div>
+</div>

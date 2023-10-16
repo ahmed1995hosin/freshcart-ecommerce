@@ -1,0 +1,73 @@
+<div class="brand-section">
+  <h1
+    class="text-capitalize h1 fw-bolder text-center my-3 py-3 text-main border-bottom border-top"
+  >
+    all brands
+  </h1>
+  <div class="container-fluid mt-5">
+    <div class="row g-2 mt-5">
+      <div class="col-sm-3 bg-light d-flex flex-column justify-content-between">
+        <div class="dropdown w-100">
+          <button
+            class="dropbtn w-100 rounded-2 text-start text-capitalize position-relative"
+          >
+            Select the brands
+            <i
+              class="fa-solid fa-chevron-down text-end position-absolute sele"
+            ></i>
+          </button>
+          <div class="dropdown-content w-100 rounded-2">
+            <a
+              class="font-sm"
+              (click)="getProductByBrand(brand?._id)"
+              *ngFor="let brand of brands"
+              >{{ brand?.name }}</a
+            >
+          </div>
+        </div>
+        <div class="p-2">
+          <div
+            *ngIf="isLoading"
+            class="brand product transition text-center rounded-2 overflow-hidden mt-5"
+          >
+            <img
+              class="w-100"
+              [src]="brandInfo?.image"
+              [alt]="brandInfo?.name"
+            />
+            <h2 class="text-capitalize h3 text-center my-5 fw-bold">
+              {{ brandInfo?.name }}
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9 p-4">
+        <h2
+          *ngIf="isLoading"
+          class="text-center h2 text-capitalize fw-bold mt-3"
+        >
+          {{ brandInfo.name }} products
+        </h2>
+        <div *ngIf="isLoadingPr" class="row mt-4 g-4 justify-content-center">
+          <div
+            *ngFor="let product of products"
+            class="col-lg-3 col-md-4 col-sm-6"
+          >
+            <app-singleproduct
+              [wishListId]="wishListId"
+              [product]="product"
+            ></app-singleproduct>
+          </div>
+        </div>
+        <div
+          *ngIf="!isLoadingPr && products.length == 0"
+          class="row mt-4 g-4 justify-content-center align-items-center h-100"
+        >
+          <h3 class="h3 text-center text-capitalize fw-bold">
+            No products in that brand
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

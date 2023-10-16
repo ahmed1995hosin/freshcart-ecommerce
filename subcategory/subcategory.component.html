@@ -1,0 +1,17 @@
+<div>
+  <div
+    class="py-3 font-md bg-main text-white ps-3 rounded-1 text-capitalize cursor-pointer"
+  >
+    {{ categoryName }} subcategories
+  </div>
+  <ul class="list-unstyled ps-3">
+    <li
+      *ngFor="let subcategory of category"
+      (click)="fillterById(subcategory._id)"
+      class="bg-light py-2 text-capitalize cato transition cursor-pointer position-relative"
+    >
+      <i class="fa-solid fa-angle-right me-1 text-main"></i
+      >{{ subcategory.name }}
+    </li>
+  </ul>
+</div>

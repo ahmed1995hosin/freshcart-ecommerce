@@ -1,0 +1,22 @@
+<span class="fw-bold font-sm text-light">
+  <i
+    *ngFor="let star of rating | round | createarray"
+    class="fa-solid fa-star rating-color ms-1"
+  ></i>
+  <i
+    class="fa-solid fa-star ms-1"
+    [ngClass]="{
+      'fa-star-half-stroke rating-color': rating | ishalf
+    }"
+  ></i>
+  <i
+    class="fa-solid fa-star"
+    *ngFor="let star of 4 - (rating | round) | createarray"
+    class="fas fa-star ms-1"
+  ></i>
+
+  <!-- fa-star-half-stroke -->
+  <!-- ishalf -->
+
+  {{ rating }}</span
+>

@@ -1,0 +1,12 @@
+.order {
+  margin-top: -6rem;
+}
+.table {
+  overflow-x: scroll;
+}
+table {
+  vertical-align: middle;
+}
+.table > :not(caption) > * > * {
+  padding: 1rem 0.6rem;
+}

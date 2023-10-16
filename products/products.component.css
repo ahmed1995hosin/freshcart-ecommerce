@@ -1,0 +1,8 @@
+.product-section {
+  margin-top: -7rem;
+}
+.product-section img {
+  /* height: 500px; */
+  height: 100vh;
+  object-fit: cover;
+}

@@ -1,0 +1,197 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-capitalize mb-2">Register Now</h1>
+      <form
+        [formGroup]="registerForm"
+        (ngSubmit)="submitRegister(registerForm)"
+        class="register p-2 py-4"
+      >
+        <label for="userName" class="fw-bolder font-sm mt-3">UserName:</label>
+        <input
+          formControlName="name"
+          id="userName"
+          type="text"
+          placeholder="Enter your Name"
+          class="form-control mb-2"
+        />
+        <div
+          *ngIf="
+            registerForm.controls['name'].errors &&
+            registerForm.controls['name'].touched
+          "
+          class="flag text-danger mb-3"
+        >
+          <p
+            *ngIf="registerForm.controls['name'].getError('pattern')"
+            class="font-sm"
+          >
+            userName must start with uppercase
+          </p>
+          <p
+            *ngIf="registerForm.controls['name'].getError('required')"
+            class="font-sm"
+          >
+            Name is required
+          </p>
+          <p
+            *ngIf="registerForm.controls['name'].getError('minlength')"
+            class="font-sm"
+          >
+            min length is 3
+          </p>
+          <p
+            *ngIf="registerForm.controls['name'].getError('maxlength')"
+            class="font-sm"
+          >
+            max length is 13
+          </p>
+        </div>
+        <label for="userEmail" class="fw-bolder font-sm mt-3">UserEmail:</label>
+        <input
+          formControlName="email"
+          id="userEmail"
+          type="email"
+          placeholder="Enter your Email"
+          class="form-control mb-2"
+        />
+        <div
+          *ngIf="
+            registerForm.controls['email'].errors &&
+            registerForm.controls['email'].touched
+          "
+          class="flag text-danger mb-3"
+        >
+          <p
+            *ngIf="registerForm.controls['email'].getError('required')"
+            class="font-sm"
+          >
+            Email is required
+          </p>
+          <p
+            *ngIf="registerForm.controls['email'].getError('email')"
+            class="font-sm"
+          >
+            Enter a valid Email
+          </p>
+        </div>
+        <label for="userPassword" class="fw-bolder font-sm mt-3"
+          >UserPassword:</label
+        >
+        <input
+          formControlName="password"
+          id="userPassword"
+          type="password"
+          placeholder="Enter your Password"
+          class="form-control mb-2"
+        />
+        <div
+          *ngIf="
+            registerForm.controls['password'].errors &&
+            registerForm.controls['password'].touched
+          "
+          class="flag text-danger mb-3"
+        >
+          <p
+            *ngIf="registerForm.controls['password'].getError('required')"
+            class="font-sm"
+          >
+            Password is required
+          </p>
+          <p
+            *ngIf="registerForm.controls['password'].getError('minlength')"
+            class="font-sm"
+          >
+            min length is 8
+          </p>
+          <p
+            *ngIf="registerForm.controls['password'].getError('pattern')"
+            class="font-sm"
+          >
+            At least one upper ,one lower,one digit
+          </p>
+        </div>
+        <label for="userRePassword" class="fw-bolder font-sm mt-3"
+          >Re-Password:</label
+        >
+        <input
+          formControlName="rePassword"
+          id="userRePassword"
+          type="password"
+          placeholder="Enter your Ee-Password"
+          class="form-control mb-2"
+        />
+        <div
+          *ngIf="
+            registerForm.controls['rePassword'].touched &&
+            registerForm.controls['rePassword'].value !=
+              registerForm.controls['password'].value
+          "
+          class="flag text-danger mb-3"
+        >
+          <p
+            *ngIf="registerForm.controls['rePassword'].getError('required')"
+            class="font-sm"
+          >
+            Re-Password is required
+          </p>
+          <p
+            *ngIf="
+              registerForm.controls['rePassword'].value !=
+                registerForm.controls['password'].value &&
+              registerForm.controls['rePassword'].value != ''
+            "
+            class="font-sm"
+          >
+            not match to pattern
+          </p>
+        </div>
+        <label for="userPhone" class="fw-bolder font-sm mt-3">userPhone:</label>
+        <input
+          formControlName="phone"
+          id="userhone"
+          type="tel"
+          placeholder="Enter your Phone"
+          class="form-control mb-4"
+        />
+        <div
+          *ngIf="
+            registerForm.controls['phone'].errors &&
+            registerForm.controls['phone'].touched
+          "
+          class="flag text-danger mb-3"
+        >
+          <p
+            *ngIf="registerForm.controls['phone'].getError('required')"
+            class="font-sm"
+          >
+            Phone is required
+          </p>
+          <p
+            *ngIf="registerForm.controls['phone'].getError('pattern')"
+            class="font-sm"
+          >
+            Enter valid Egyptian number
+          </p>
+        </div>
+        <div *ngIf="errorsMessage" class="alert alert-danger font-sm">
+          {{ errorsMessage }}
+        </div>
+        <div *ngIf="successMessage" class="alert alert-success font-sm">
+          {{ successMessage }}
+        </div>
+
+        <button
+          [disabled]="!registerForm.valid || isLoading"
+          class="d-flex text-capitalize main-btn bg-main btn ms-auto mt-4"
+        >
+          <span *ngIf="isSubmit">Submit </span>
+          <i
+            *ngIf="!isSubmit"
+            class="fa-spin fa-solid fa-arrows-spin font-md"
+          ></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

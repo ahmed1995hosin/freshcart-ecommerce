@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-capitalize mb-2">Sign In Now</h1>
+      <form
+        class="login p-2 py-4"
+        [formGroup]="LogInInForm"
+        (ngSubmit)="login(LogInInForm)"
+      >
+        <label for="userEmail" class="fw-bolder font-sm mt-3">UserEmail:</label>
+        <input
+          formControlName="email"
+          id="userEmail"
+          type="email"
+          placeholder="Enter your Email"
+          class="form-control mb-2"
+        />
+        <div
+          *ngIf="
+            LogInInForm.controls['email'].errors &&
+            LogInInForm.controls['email'].touched
+          "
+          class="flag text-danger mb-3"
+        >
+          <p
+            *ngIf="LogInInForm.controls['email'].getError('required')"
+            class="font-sm"
+          >
+            Email is required
+          </p>
+          <p
+            *ngIf="LogInInForm.controls['email'].getError('email')"
+            class="font-sm"
+          >
+            Enter a valid Email
+          </p>
+        </div>
+        <label for="userPassword" class="fw-bolder font-sm mt-3"
+          >UserPassword:</label
+        >
+        <input
+          formControlName="password"
+          id="userPassword"
+          type="password"
+          placeholder="Enter your Password"
+          class="form-control mb-2"
+        />
+        <div
+          *ngIf="
+            LogInInForm.controls['password'].errors &&
+            LogInInForm.controls['password'].touched
+          "
+          class="flag text-danger mb-3"
+        >
+          <p
+            *ngIf="LogInInForm.controls['password'].getError('required')"
+            class="font-sm"
+          >
+            Password is required
+          </p>
+          <p
+            *ngIf="LogInInForm.controls['password'].getError('minlength')"
+            class="font-sm"
+          >
+            min length is 8
+          </p>
+          <p
+            *ngIf="LogInInForm.controls['password'].getError('pattern')"
+            class="font-sm"
+          >
+            At least one upper ,one lower,one digit
+          </p>
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger font-sm">
+          {{ errorMessage }}
+        </div>
+        <div *ngIf="successMessage" class="alert alert-success font-sm">
+          {{ successMessage }}
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-4">
+          <a [routerLink]="['/settings', 'forgetpassword']" class="forget"
+            >forget your password ?</a
+          >
+          <button
+            [disabled]="!LogInInForm.valid || isLoading"
+            class="d-flex text-capitalize main-btn bg-main btn"
+          >
+            <span *ngIf="isSubmit">Submit </span>
+            <i
+              *ngIf="!isSubmit"
+              class="fa-spin fa-solid fa-arrows-spin font-md"
+            ></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

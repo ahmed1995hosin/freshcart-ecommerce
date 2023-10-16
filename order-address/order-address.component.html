@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-capitalize mb-2">enter your address</h1>
+      <form [formGroup]="shippingAddress" class="address-form my-4 p-2">
+        <label for="details " class="fw-bolder font-sm mb-1">Details:</label>
+        <input
+          formControlName="details"
+          id="details"
+          type="text"
+          class="form-control mb-2 font-sm"
+          placeholder="Enter address"
+        />
+        <div
+          *ngIf="
+            shippingAddress.controls['details'].touched &&
+            shippingAddress.controls['details'].errors
+          "
+          class="flag text-danger mb-2"
+        >
+          <p class="font-sm">required</p>
+        </div>
+        <label for="phone " class="fw-bolder font-sm mb-1">Phone:</label>
+        <input
+          formControlName="phone"
+          id="phone"
+          type="tel"
+          class="form-control mb-2 font-sm"
+          placeholder="Enter Phone Number"
+        />
+        <div
+          *ngIf="
+            shippingAddress.controls['phone'].touched &&
+            shippingAddress.controls['phone'].errors
+          "
+          class="flag text-danger mb-2"
+        >
+          <p
+            *ngIf="shippingAddress.controls['phone'].getError('required')"
+            class="font-sm"
+          >
+            Phone Number required
+          </p>
+          <p
+            *ngIf="shippingAddress.controls['phone'].getError('pattern')"
+            class="font-sm"
+          >
+            Enter valid number
+          </p>
+        </div>
+        <label for="City " class="fw-bolder font-sm mb-1">City:</label>
+        <input
+          formControlName="city"
+          id="City"
+          type="text"
+          class="form-control mb-2 font-sm"
+          placeholder="Enter City Name"
+        />
+        <div
+          *ngIf="
+            shippingAddress.controls['city'].touched &&
+            shippingAddress.controls['city'].errors
+          "
+          class="flag text-danger mb-2"
+        >
+          <p class="font-sm">required</p>
+        </div>
+        <div class="mt-4 d-flex justify-content-between">
+          <button
+            [disabled]="!shippingAddress.valid"
+            (click)="cashOrder(shippingAddress)"
+            class="d-block text-capitalize main-btn bg-main btn font-sm"
+          >
+            Cash Order
+          </button>
+          <button
+            [disabled]="!shippingAddress.valid"
+            (click)="payOnline(shippingAddress)"
+            class="d-block text-capitalize main-btn bg-main btn font-sm"
+          >
+            onlinePayment
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
