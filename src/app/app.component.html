@@ -1,0 +1,8 @@
+<app-navbar class="nav-main"></app-navbar>
+<div class="main-padding height-container-vh">
+  <router-outlet></router-outlet>
+  <!-- <ng-http-loader [filteredMethods]="['POST', 'PuT']"></ng-http-loader> -->
+</div>
+<app-preloading *ngIf="isLoading" class="loader"></app-preloading>
+
+<app-footer></app-footer>

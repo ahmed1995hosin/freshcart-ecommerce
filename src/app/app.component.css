@@ -1,0 +1,15 @@
+.main-padding {
+  padding: 7rem 0 !important;
+}
+.height-container-vh {
+  /* min-height: calc(100vh - 7rem); */
+}
+
+.nav-main {
+  position: relative;
+  z-index: 999999;
+}
+
+.loader {
+  min-height: 100vh;
+}

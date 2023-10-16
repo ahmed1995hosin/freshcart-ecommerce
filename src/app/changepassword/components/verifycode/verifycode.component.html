@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 mt-5">
+      <h1 class="text-capitalize mb-4 fw-bolder">
+        please enter your verification code
+      </h1>
+      <form
+        [formGroup]="verifyForm"
+        (ngSubmit)="Verify(verifyForm)"
+        class="forget-form"
+      >
+        <div class="form font-sm position-relative mt-3">
+          <input
+            formControlName="resetCode"
+            id="usercode"
+            class="form-control font-sm fw-bolder"
+            type="number"
+          />
+          <label
+            for="usercode"
+            class="d-block px-2 position-absolute forget-lable py-3"
+            >Verify code
+          </label>
+        </div>
+        <div
+          *ngIf="
+            verifyForm.controls['resetCode'].errors &&
+            verifyForm.controls['resetCode'].touched
+          "
+          class="text-danger font-sm"
+        >
+          <p *ngIf="verifyForm.controls['resetCode'].getError('required')">
+            code is required
+          </p>
+          <p *ngIf="verifyForm.controls['resetCode'].getError('pattern')">
+            verification code must be 6 digits
+          </p>
+        </div>
+        <button
+          [disabled]="isloaded || verifyForm.invalid"
+          class="btn bor-btn font-md text-capitalize px-4 py-2 mt-3"
+        >
+          submit
+          <i *ngIf="isloaded" class="fa-solid fa-spinner fa-spin"></i>
+        </button>
+        <div *ngIf="verifyForm.valid" class="text-center mt-3">
+          <p *ngIf="successMessage" class="alert alert-success">
+            {{ successMessage }}
+          </p>
+          <p *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

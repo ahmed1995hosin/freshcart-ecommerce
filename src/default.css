@@ -1,0 +1,162 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+:root {
+  --main-color: #0aae0a;
+
+  --light-color: #f0f3f2;
+  --shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+  --font-family: "Encode Sans Expanded", sans-serif;
+  --rating-color: #ffc908;
+}
+html {
+  font-size: 62.5%;
+}
+.bg-grey {
+  background-color: rgb(0, 176, 42, 0.3);
+}
+
+body {
+  font-family: var(--font-family) !important;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+.rating-color {
+  color: var(--rating-color) !important;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+a {
+  transition: all 0.4s;
+}
+a,
+a:hover {
+  color: black !important;
+  text-decoration: none;
+  position: relative;
+}
+.product {
+  /* font-size: 16px; */
+  overflow: hidden;
+}
+.product:hover {
+  box-shadow: var(--shadow);
+  border: solid 1px var(--main-color);
+}
+.product .btn {
+  font-size: 1.6rem;
+}
+.group-btn {
+  transition: transform 1s, opacity 1s;
+  transform: translateY(100%);
+  opacity: 0;
+}
+.product:hover .group-btn {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.font-sm {
+  font-size: 1.4rem;
+}
+.font-md {
+  font-size: 1.8rem;
+}
+.text-main {
+  color: var(--main-color) !important;
+}
+.bg-main {
+  background-color: var(--main-color) !important;
+}
+.bg-main-light {
+  background-color: var(--light-color) !important;
+}
+p {
+  margin: 0 !important;
+}
+
+ul {
+  margin: 0 !important;
+}
+
+/* heading 2 */
+.heading-2 {
+  font-size: 3rem;
+}
+
+/*shadow2  */
+.main-navigation {
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+}
+
+.transition {
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.text-light {
+  color: #8d8c8c !important;
+}
+.fit-image {
+  object-fit: cover;
+}
+
+/* gloable */
+.form-control:focus {
+  border-color: var(--main-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(10, 173, 10, 0.25);
+}
+
+/*  */
+.bor-btn {
+  border: 1.5px solid var(--main-color) !important;
+  background-color: transparent;
+  transition: all 0.2s !important;
+  color: var(--main-color);
+}
+.bor-btn:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}
+.bor-btn:focus {
+  border: 1.5px solid var(--main-color) !important;
+}
+
+.heart {
+  font-size: 2.5rem !important;
+}
+.heart {
+  border: none !important;
+  outline: none;
+  background-color: transparent;
+}
+
+.heart-red {
+  color: #d51243 !important;
+}
+/* .ngx-pagination::ng-deep {
+  .ngx-pagination .current {
+    background-color: red !important;
+  }
+} */
+.ngx-pagination .current {
+  background-color: var(--main-color) !important;
+  color: white !important;
+  padding: 0.4rem 1.3rem !important;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  margin-left: 0.5rem;
+}
+.ngx-pagination a {
+  margin-left: 0.5rem;
+  padding: 0.4rem 1.3rem !important;
+}
